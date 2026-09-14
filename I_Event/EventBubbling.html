@@ -1,0 +1,81 @@
+<!-- Event bubbling is a concept in the DOM (Document Object Model) where an event starts from the target element and bubbles up to its parent elements. -->
+ <!-- bubbling means that when you click on the child element, the event will also trigger the click event of the parent element. By using e.stopPropagation(), we can prevent the event from bubbling up to the parent elements, so only the child element's click event will be triggered -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event bubbling</title>
+    <style>
+        .child {
+            background-color: aliceblue;
+            border: 2px solid black;
+            padding: 14px;
+            margin: 14px;
+            cursor: pointer;            /*when cursor is on child element, it will show pointer*/
+        }
+
+        .childContainer {
+            background-color: beige;
+            padding: 14px;
+            margin: 14px;
+        }
+
+        .container {
+            background-color: rgb(227, 227, 28);
+            padding: 14px;
+            margin: 14px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <section class="childContainer">
+            <div class="child">
+                I am a child
+            </div>
+        </section>
+    </div>
+    <script>
+        document.querySelector(".child").addEventListener("click", (e) => {
+            e.stopPropagation()                                      // This will stop the event from bubbling up to the parent elements
+            alert("Child Was clicked")
+        })
+
+        document.querySelector(".childContainer").addEventListener("click", (e) => {
+            e.stopPropagation()                                     
+            alert("childContainer Was clicked")
+        })
+
+        document.querySelector(".container").addEventListener("click", (e) => {
+            alert("container Was clicked")
+        })
+
+        function getRandomColor() {
+            let val1 = Math.ceil(0 + Math.random() * 255);
+            let val2 = Math.ceil(0 + Math.random() * 255);
+            let val3 = Math.ceil(0 + Math.random() * 255);
+            return `rgb(${val1}, ${val2}, ${val3})`
+        }
+        let a = setInterval(() => {                            // This will change the background color every second
+            document.querySelector(".childContainer").style.background = getRandomColor();
+        }, 1000);
+
+        console.log(a)
+
+        // let a = setTimeout(() => {                               // This will change the background color after 5 seconds
+        //     document.querySelector(".childContainer").style.background = getRandomColor();  
+        // }, 5000);
+
+        // console.log(a)   /* the console prints 1, which is the ID of the timeout. This ID can be used to clear the timeout later if needed. */
+        
+        /*if you want to stop the timeout, you can use clearTimeout(a)*/
+        // clearTimeout(a)                                      // This will stop the timeout from executing
+
+
+    </script>
+</body>
+
+</html>

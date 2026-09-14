@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .red{
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container red bg-green">
+        <div class="box" style="display: flex;" data-createdby="harry" data-conceptby="rohan" >Hey I am a box</div>
+        <div class="box">Hey I am a box 2</div>
+        <script>
+            document.querySelector(".box").innerText                    //'Hey I am a box'
+            document.querySelector(".container").innerText             //'Hey I am a box\nHey I am a box 2'
+            document.querySelector(".box").innerHtml                  // '<div class="box" style="display: flex;" data-createdby="harry" data-conceptby="rohan" >Hey I am a box</div>' 
+            document.querySelector(".container").innerHtml            // returns the inner html of the container excluding the container itself
+            document.querySelector(".container").outerHtml           // returns the entire html of the container including the container itself
+            document.querySelector(".container").tagName           // returns the tag name of the container( only applies to elements)
+            document.querySelector(".container").nodeName         // #document-fragment  // returns the node name of the container( applies to all nodes like comments, text nodes, etc)
+            document.querySelector(".container").textContent          // returns the text content of the container including the text nodes
+            document.querySelector(".container").hidden = true       // hides the container
+            document.querySelector(".box").innerHtml = "hey i am mimansa"          //it will change the first .box class element
+            document.querySelector(".box").hasAttribute("style")                        // returns true if the attribute exists
+            document.querySelector(".box").getAttribute("style")                       // returns the value of the attribute
+            document.querySelector(".box").setAttribute("style"," display : inline ")         // sets the value of the attribute
+            document.querySelector(".box").attributes                                    // returns all the attributes of the element
+            document.querySelector(".box").removeAttribute("style")                    // removes the attribute from the element
+            document.designMode = "on"              // enables the design mode of the document, allowing you to edit the content of the document
+            document.querySelector(".box").dataset                           // returns all the data attributes of the element as an object
+
+
+           
+        </script>
+    </div>
+</body>
+
+</html>

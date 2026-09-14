@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 
+        Write a program to calculate factorial of a number using reduce and using for loops
+
+
+        6! = 6*5*4*3*2*1
+
+     -->
+    <script>
+
+        let a = 6; // you can change this number to calculate factorial of any number
+
+        function factorial(number) {                              //**using reduce
+            let arr = Array.from(Array(number + 1).keys())        // it creates an array of numbers from 0 to number
+            let c = arr.slice(1,).reduce((a, b) => a * b)         //here slice removes 0 and 1 
+            return c
+        }
+
+
+        function facFor(number) {                               //**using for loop
+            let fac = 1;
+            for (let index = 1; index <= number; index++) {
+                fac = fac * index
+            }
+            return fac
+        }
+        console.log(factorial(a))
+        console.log(facFor(a))
+
+    </script>
+
+
+</body>
+
+</html>
